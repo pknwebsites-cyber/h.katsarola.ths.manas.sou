@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#b7392c">
 <title>Η Κατσαρόλα της Μάνας σου — Σπιτικό μαγειρευτό φαγητό στα Σπάτα</title>
 <meta name="description" content="Σπιτικό, μαγειρευτό φαγητό στα Σπάτα. Παραγγελία delivery Δευτέρα έως Σάββατο, 11:30–17:30.">
-
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@600;700;800;900&family=Alegreya:ital@1&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-
+ 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +41,7 @@
   "sameAs": ["https://www.instagram.com/katsarola_tismanas_sou/"]
 }
 </script>
-
+ 
 <style>
   :root{
     --paper: #f5ead2;
@@ -58,16 +59,16 @@
     --serif: "Alegreya", Georgia, serif;
     --sans: "PT Sans", Arial, sans-serif;
   }
-
+ 
   *{ box-sizing: border-box; }
-
+ 
   html{ scroll-behavior: smooth; }
-
+ 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
     *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   }
-
+ 
   body{
     margin:0;
     font-family: var(--sans);
@@ -75,12 +76,13 @@
     color: var(--ink);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-
+ 
   img, svg{ display:block; max-width:100%; }
-
+ 
   a{ color: inherit; }
-
+ 
   h1,h2,h3{
     font-family: var(--serif);
     font-weight: 800;
@@ -88,20 +90,20 @@
     margin: 0;
     color: var(--tomato-deep);
   }
-
+ 
   .wrap{
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 28px;
   }
-
+ 
   /* ---------- texture ---------- */
   .checked-strip{
     height: 14px;
     background-image: repeating-linear-gradient(45deg, var(--tomato) 0 10px, var(--paper) 10px 20px);
     opacity: 0.55;
   }
-
+ 
   /* ---------- header ---------- */
   header{
     position: sticky;
@@ -114,7 +116,8 @@
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding: 16px 0;
+    padding: 14px 0;
+    gap: 12px;
   }
   .brand{
     display:flex;
@@ -122,61 +125,114 @@
     gap:12px;
     text-decoration:none;
   }
-  .brand-mark{ width:40px; height:40px; flex-shrink:0; }
+  .brand-mark{ width:38px; height:38px; flex-shrink:0; }
   .brand-name{
     font-family: var(--serif);
     font-weight:800;
-    font-size: 1.15rem;
+    font-size: 1.08rem;
     color: var(--ink);
     letter-spacing: 0.2px;
   }
-  .nav-links{
+ 
+  .nav-actions{
     display:flex;
     align-items:center;
-    gap: 28px;
-    list-style:none;
-    margin:0; padding:0;
+    gap: 10px;
+    flex-shrink:0;
   }
-  .nav-links a{
-    text-decoration:none;
-    font-weight:700;
-    font-size: 0.95rem;
-    color: var(--ink-soft);
-    border-bottom: 2px solid transparent;
-    padding-bottom: 3px;
-    transition: color .15s, border-color .15s;
-  }
-  .nav-links a:hover{ color: var(--tomato); border-color: var(--tomato); }
-
+ 
   .call-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
     background: var(--tomato);
     color: #fff8ec;
     text-decoration:none;
     font-weight:700;
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: var(--radius);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     box-shadow: 0 3px 0 var(--tomato-deep);
     transition: transform .12s, box-shadow .12s;
     white-space:nowrap;
   }
+  .call-btn svg{ width:16px; height:16px; }
   .call-btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 0 var(--tomato-deep); }
   .call-btn:active{ transform: translateY(2px); box-shadow: 0 1px 0 var(--tomato-deep); }
-
+  .call-btn .short-num{ display:none; }
+  @media (max-width: 480px){
+    .call-btn .full-num{ display:none; }
+    .call-btn .short-num{ display:inline; }
+  }
+ 
   .burger{
-    display:none;
-    background:none; border:none; cursor:pointer;
-    padding: 6px;
+    background:none;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    cursor:pointer;
+    padding: 9px 10px;
+    width: 42px;
+    height: 42px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
   }
   .burger span{
-    display:block; width:24px; height:2.5px; background:var(--ink);
-    margin: 5px 0; border-radius: 2px;
+    display:block; width:20px; height:2.5px; background:var(--ink);
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
   }
-
+  .burger span:not(:last-child){ margin-bottom: 5px; }
+  .burger.open span:nth-child(1){ transform: translateY(7.5px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform: translateY(-7.5px) rotate(-45deg); }
+ 
+  /* ---------- nav panel (the only way to reach the other pages) ---------- */
+  .nav-panel{
+    position:absolute;
+    left:0; right:0; top:100%;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 28px rgba(44,33,23,0.14);
+    transform-origin: top center;
+    transform: scaleY(0.85);
+    opacity: 0;
+    pointer-events:none;
+    transition: transform .22s ease, opacity .18s ease;
+  }
+  .nav-panel.open{ transform: scaleY(1); opacity:1; pointer-events:auto; }
+  .nav-panel ul{
+    list-style:none;
+    margin:0; padding: 10px 0;
+    max-width: 1120px;
+    margin-inline:auto;
+  }
+  .nav-panel a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    text-decoration:none;
+    font-weight:700;
+    color: var(--ink);
+    padding: 15px 28px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.02rem;
+    transition: color .15s, background .15s, padding-left .15s;
+  }
+  .nav-panel li:last-child a{ border-bottom:none; }
+  .nav-panel a:hover{ color: var(--tomato); background: var(--paper); padding-left: 34px; }
+  .nav-panel a.current{ color: var(--tomato-deep); }
+  .nav-panel a.current::after{
+    content:"●";
+    font-size: 0.5rem;
+    color: var(--tomato);
+  }
+ 
   /* ---------- hero ---------- */
   .hero{
     position: relative;
-    padding: 76px 0 60px;
+    padding: 56px 0 60px;
     overflow:hidden;
   }
   .hero-grid{
@@ -195,9 +251,9 @@
     font-size: 0.98rem;
   }
   .eyebrow-line svg{ width:20px; height:20px; }
-
+ 
   .hero h1{
-    font-size: clamp(2.5rem, 5vw, 3.6rem);
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
     margin-bottom: 20px;
   }
   .hero h1 em{
@@ -205,7 +261,7 @@
     color: var(--olive);
   }
   .hero p.lede{
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--ink-soft);
     max-width: 46ch;
     margin-bottom: 30px;
@@ -231,7 +287,7 @@
   }
   .btn-ghost:hover{ background: var(--ink); color: var(--paper); }
   .btn-ghost svg{ width:18px; height:18px; }
-
+ 
   .rating-badge{
     display:inline-flex;
     align-items:center;
@@ -244,7 +300,7 @@
   .rating-badge .stars{ color: var(--mustard); font-size: 1.1rem; letter-spacing:1px; }
   .rating-badge .num{ font-weight:800; font-family: var(--serif); font-size:1.2rem; color: var(--ink); }
   .rating-badge .of{ font-size: 0.85rem; color: var(--ink-soft); }
-
+ 
   .hero-art{
     position:relative;
     display:flex;
@@ -254,13 +310,34 @@
   .pot-illustration{
     width: 100%;
     max-width: 380px;
-    animation: rise 900ms ease-out both;
   }
-  @keyframes rise{
-    from{ opacity:0; transform: translateY(18px) scale(0.97); }
-    to{ opacity:1; transform: translateY(0) scale(1); }
+ 
+  /* single signature ambient motion: steam curling off the pot */
+  .steam path{
+    transform-origin: bottom center;
+    animation: steam 3.6s ease-in-out infinite;
   }
-
+  .steam path:nth-child(2){ animation-delay: .5s; }
+  .steam path:nth-child(3){ animation-delay: 1s; }
+  @keyframes steam{
+    0%{ opacity:0; transform: translateY(6px) scaleY(0.9); }
+    30%{ opacity:.85; }
+    75%{ opacity:0; transform: translateY(-26px) scaleY(1.1); }
+    100%{ opacity:0; transform: translateY(-26px) scaleY(1.1); }
+  }
+ 
+  /* ---------- one orchestrated load sequence for the homepage ---------- */
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  #home.animate-in .eyebrow-line{ animation: fadeUp .5s ease both; }
+  #home.animate-in .hero h1{ animation: fadeUp .55s ease .08s both; }
+  #home.animate-in .hero p.lede{ animation: fadeUp .55s ease .16s both; }
+  #home.animate-in .hero-actions{ animation: fadeUp .55s ease .24s both; }
+  #home.animate-in .rating-badge{ animation: fadeUp .55s ease .32s both; }
+  #home.animate-in .hero-art{ animation: fadeUp .7s ease .12s both; }
+ 
   /* ---------- section shell ---------- */
   section{ padding: 72px 0; }
   .section-head{
@@ -274,10 +351,33 @@
     margin-bottom: 8px;
   }
   .section-head h2{
-    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
   }
   .section-head p{ color: var(--ink-soft); margin-top: 14px; font-size: 1.05rem; }
-
+ 
+  /* ---------- page switching ---------- */
+  .page{ display:none; }
+  .page.active{ display:block; }
+  .page:not(.hero).animate-in{ animation: pageIn .42s ease both; }
+  @keyframes pageIn{
+    from{ opacity:0; transform: translateY(16px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  .page-topbar{ padding-bottom: 6px; }
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    text-decoration:none;
+    font-weight:700;
+    font-size: 0.92rem;
+    color: var(--olive-deep);
+  }
+  .back-link:hover{ color: var(--tomato); }
+  .back-link svg{ width:16px; height:16px; }
+ 
+  noscript .page{ display:block !important; }
+ 
   /* ---------- about ---------- */
   .about{ background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .about-grid{
@@ -302,6 +402,7 @@
     display:flex;
     gap: 32px;
     margin-top: 30px;
+    flex-wrap: wrap;
   }
   .stat-row div{ text-align:left; }
   .stat-row .n{
@@ -312,7 +413,7 @@
     display:block;
   }
   .stat-row .l{ font-size: 0.88rem; color: var(--ink-soft); }
-
+ 
   /* ---------- menu highlights ---------- */
   .dishes-grid{
     display:grid;
@@ -335,7 +436,17 @@
   }
   .dish-card h3{ font-size: 1.3rem; margin-bottom: 10px; }
   .dish-card p{ color: var(--ink-soft); font-size: 0.98rem; margin:0; }
-
+ 
+  /* dish cards get a light staggered reveal each time you open this page */
+  #dishes.animate-in .dish-card{ animation: cardIn .5s ease both; }
+  #dishes.animate-in .dish-card:nth-child(1){ animation-delay: .08s; }
+  #dishes.animate-in .dish-card:nth-child(2){ animation-delay: .18s; }
+  #dishes.animate-in .dish-card:nth-child(3){ animation-delay: .28s; }
+  @keyframes cardIn{
+    from{ opacity:0; transform: translateY(18px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+ 
   /* ---------- reviews ---------- */
   .reviews{ background: var(--paper-deep); }
   .reviews-grid{
@@ -352,7 +463,12 @@
   .review-stars{ color: var(--mustard); letter-spacing: 2px; margin-bottom: 12px; font-size: 0.95rem; }
   .review-card p{ font-size: 0.98rem; color: var(--ink); margin: 0 0 14px; }
   .review-name{ font-weight:700; font-size: 0.9rem; color: var(--ink-soft); }
-
+ 
+  #reviews.animate-in .review-card{ animation: cardIn .5s ease both; }
+  #reviews.animate-in .review-card:nth-child(1){ animation-delay: .08s; }
+  #reviews.animate-in .review-card:nth-child(2){ animation-delay: .18s; }
+  #reviews.animate-in .review-card:nth-child(3){ animation-delay: .28s; }
+ 
   /* ---------- info / order ---------- */
   .info-grid{
     display:grid;
@@ -371,7 +487,7 @@
   .info-list .label{ font-weight:700; display:block; margin-bottom: 2px; }
   .info-list a{ text-decoration: none; }
   .info-list a:hover{ color: var(--tomato); }
-
+ 
   .hours-table{
     width:100%;
     border-collapse: collapse;
@@ -389,7 +505,7 @@
   .hours-table td:first-child{ font-weight:700; }
   .hours-table td:last-child{ text-align:right; color: var(--ink-soft); }
   .hours-table tr.closed td:last-child{ color: var(--tomato); font-weight:700; }
-
+ 
   .order-buttons{
     display:flex;
     gap: 14px;
@@ -410,7 +526,7 @@
   .order-buttons a:hover{ transform: translateY(-2px); }
   .order-wolt{ background:#00c2e8; color:#062b30; }
   .order-efood{ background: var(--olive); color: #fff8ec; }
-
+ 
   /* ---------- footer ---------- */
   footer{
     background: var(--ink);
@@ -459,41 +575,35 @@
     flex-wrap:wrap;
     gap: 10px;
   }
-
+ 
   /* ---------- responsive ---------- */
   @media (max-width: 880px){
-    .nav-links, .call-btn.desktop-only{ display:none; }
-    .burger{ display:block; }
     .hero-grid, .about-grid, .info-grid{ grid-template-columns: 1fr; }
-    .hero-art{ order:-1; }
+    .hero-art{ order:-1; max-width: 280px; margin: 0 auto 8px; }
     .dishes-grid, .reviews-grid{ grid-template-columns: 1fr; }
     .stat-row{ gap: 24px; }
-    section{ padding: 52px 0; }
+    section{ padding: 48px 0; }
+    .hero{ padding: 36px 0 44px; }
   }
-
-  .mobile-menu{
-    display:none;
-    flex-direction:column;
-    gap: 4px;
-    padding: 10px 0 18px;
-    border-top: 1px solid var(--line);
+ 
+  @media (max-width: 560px){
+    .wrap{ padding: 0 18px; }
+    .brand-name{ font-size: 0.96rem; }
+    .brand-mark{ width:32px; height:32px; }
+    .hero-actions{ flex-direction: column; }
+    .hero-actions .btn-ghost{ width:100%; justify-content:center; }
+    .order-buttons{ flex-direction: column; }
+    .rating-badge{ width:100%; justify-content:center; text-align:center; }
+    .nav-panel a{ padding: 14px 18px; }
+    .stat-row{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   }
-  .mobile-menu.open{ display:flex; }
-  .mobile-menu a{
-    padding: 12px 4px;
-    text-decoration:none;
-    color: var(--ink);
-    font-weight:700;
-    border-bottom: 1px solid var(--line);
-  }
-  .mobile-menu .call-btn{ margin-top: 10px; text-align:center; }
 </style>
 </head>
 <body>
-
+ 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">
+    <a class="brand nav-link" href="#home" data-page="home" aria-label="Αρχική σελίδα">
       <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="24" cy="30" rx="17" ry="9" fill="#b7392c"/>
         <rect x="7" y="22" width="34" height="10" rx="3" fill="#8f2b21"/>
@@ -503,34 +613,35 @@
       </svg>
       <span class="brand-name">Η Κατσαρόλα<br>της Μάνας σου</span>
     </a>
-
-    <ul class="nav-links">
-      <li><a href="#about">Η ιστορία μας</a></li>
-      <li><a href="#dishes">Πιάτα</a></li>
-      <li><a href="#reviews">Κριτικές</a></li>
-      <li><a href="#info">Ωράριο &amp; Διεύθυνση</a></li>
+ 
+    <div class="nav-actions">
+      <a class="call-btn" href="tel:+302106632688">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" fill="currentColor"/></svg>
+        <span class="full-num">Καλέστε: 21 0663 2688</span>
+        <span class="short-num">Κλήση</span>
+      </a>
+      <button class="burger" id="burgerBtn" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="navPanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+ 
+  <nav class="nav-panel" id="navPanel" aria-label="Κύρια πλοήγηση">
+    <ul>
+      <li><a href="#home" class="nav-link" data-page="home">Αρχική</a></li>
+      <li><a href="#about" class="nav-link" data-page="about">Η ιστορία μας</a></li>
+      <li><a href="#dishes" class="nav-link" data-page="dishes">Πιάτα</a></li>
+      <li><a href="#reviews" class="nav-link" data-page="reviews">Κριτικές</a></li>
+      <li><a href="#info" class="nav-link" data-page="info">Ωράριο &amp; Διεύθυνση</a></li>
     </ul>
-
-    <a class="call-btn desktop-only" href="tel:+302106632688">Καλέστε: 21 0663 2688</a>
-
-    <button class="burger" aria-label="Άνοιγμα μενού" onclick="document.getElementById('mmenu').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu wrap" id="mmenu">
-    <a href="#about">Η ιστορία μας</a>
-    <a href="#dishes">Πιάτα</a>
-    <a href="#reviews">Κριτικές</a>
-    <a href="#info">Ωράριο &amp; Διεύθυνση</a>
-    <a class="call-btn" href="tel:+302106632688">Καλέστε: 21 0663 2688</a>
-  </div>
+  </nav>
 </header>
-
+ 
 <div class="checked-strip"></div>
-
-<main id="top">
-
-  <section class="hero">
+ 
+<main>
+ 
+  <section class="page hero active" id="home">
     <div class="wrap hero-grid">
       <div>
         <div class="eyebrow-line">
@@ -539,7 +650,7 @@
         </div>
         <h1>Φαγητό σαν να το <em>μαγείρεψε</em> η μάνα σου</h1>
         <p class="lede">Στην καρδιά των Σπάτων, μαγειρεύουμε καθημερινά τα πιάτα που τρώγαμε μεγαλώνοντας — λαδερά, γεμιστά και γλυκά ταψιού, με τον ίδιο τρόπο που τα φτιάχνει μια μάνα για το σπίτι της.</p>
-
+ 
         <div class="hero-actions">
           <a class="btn-ghost" href="tel:+302106632688">
             <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" fill="currentColor"/></svg>
@@ -554,14 +665,14 @@
             Instagram
           </a>
         </div>
-
+ 
         <div class="rating-badge">
           <span class="stars">★★★★★</span>
           <span class="num">4,8</span>
           <span class="of">από 32 κριτικές Google</span>
         </div>
       </div>
-
+ 
       <div class="hero-art">
         <svg class="pot-illustration" viewBox="0 0 360 340" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="180" cy="270" rx="120" ry="18" fill="#2c2117" opacity="0.08"/>
@@ -569,9 +680,11 @@
           <rect x="40" y="130" width="280" height="34" rx="10" fill="#8f2b21"/>
           <rect x="4" y="138" width="46" height="16" rx="8" fill="#8f2b21"/>
           <rect x="310" y="138" width="46" height="16" rx="8" fill="#8f2b21"/>
-          <path d="M110 128c-6-22 4-34 4-34" stroke="#dfa53c" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
-          <path d="M180 128c-6-28 8-42 8-42" stroke="#dfa53c" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
-          <path d="M250 128c-6-22 4-34 4-34" stroke="#dfa53c" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+          <g class="steam">
+            <path d="M110 128c-6-22 4-34 4-34" stroke="#dfa53c" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+            <path d="M180 128c-6-28 8-42 8-42" stroke="#dfa53c" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+            <path d="M250 128c-6-22 4-34 4-34" stroke="#dfa53c" stroke-width="7" stroke-linecap="round" opacity="0.85"/>
+          </g>
           <circle cx="90" cy="70" r="6" fill="#576b2e"/>
           <circle cx="270" cy="60" r="5" fill="#576b2e"/>
           <circle cx="230" cy="90" r="4" fill="#dfa53c"/>
@@ -579,8 +692,14 @@
       </div>
     </div>
   </section>
-
-  <section class="about" id="about">
+ 
+  <section class="page about" id="about">
+    <div class="wrap page-topbar">
+      <a href="#home" class="back-link nav-link" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Αρχική
+      </a>
+    </div>
     <div class="wrap about-grid">
       <div class="about-text">
         <div class="section-head" style="margin-bottom:22px;">
@@ -610,8 +729,14 @@
       </div>
     </div>
   </section>
-
-  <section id="dishes">
+ 
+  <section class="page" id="dishes">
+    <div class="wrap page-topbar">
+      <a href="#home" class="back-link nav-link" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Αρχική
+      </a>
+    </div>
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">Τι θα βρεις στο τραπέζι</div>
@@ -637,8 +762,14 @@
       </div>
     </div>
   </section>
-
-  <section class="reviews" id="reviews">
+ 
+  <section class="page reviews" id="reviews">
+    <div class="wrap page-topbar">
+      <a href="#home" class="back-link nav-link" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Αρχική
+      </a>
+    </div>
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">Τι λένε οι πελάτες μας</div>
@@ -663,8 +794,14 @@
       </div>
     </div>
   </section>
-
-  <section id="info">
+ 
+  <section class="page" id="info">
+    <div class="wrap page-topbar">
+      <a href="#home" class="back-link nav-link" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Αρχική
+      </a>
+    </div>
     <div class="wrap info-grid">
       <div>
         <div class="section-head" style="margin-bottom:26px;">
@@ -694,13 +831,13 @@
             </div>
           </li>
         </ul>
-
+ 
         <div class="order-buttons">
           <a class="order-wolt" href="https://wolt.com/en/grc/athens/restaurant/i-katsarola-tis-manas-sou-athens" target="_blank" rel="noopener">Παραγγελία στο Wolt</a>
           <a class="order-efood" href="https://www.e-food.gr/delivery/spata/i-katsarola-tis-manas-soy-9165506" target="_blank" rel="noopener">Παραγγελία στο e-food</a>
         </div>
       </div>
-
+ 
       <div>
         <div class="section-head" style="margin-bottom:26px;">
           <div class="kicker">Ωράριο</div>
@@ -718,9 +855,9 @@
       </div>
     </div>
   </section>
-
+ 
 </main>
-
+ 
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -732,10 +869,10 @@
         <div>
           <h4>Πλοήγηση</h4>
           <ul>
-            <li><a href="#about">Η ιστορία μας</a></li>
-            <li><a href="#dishes">Πιάτα</a></li>
-            <li><a href="#reviews">Κριτικές</a></li>
-            <li><a href="#info">Ωράριο &amp; Διεύθυνση</a></li>
+            <li><a href="#about" class="nav-link" data-page="about">Η ιστορία μας</a></li>
+            <li><a href="#dishes" class="nav-link" data-page="dishes">Πιάτα</a></li>
+            <li><a href="#reviews" class="nav-link" data-page="reviews">Κριτικές</a></li>
+            <li><a href="#info" class="nav-link" data-page="info">Ωράριο &amp; Διεύθυνση</a></li>
           </ul>
         </div>
         <div>
@@ -760,6 +897,72 @@
     </div>
   </div>
 </footer>
-
+ 
+<noscript>
+  <style>.page{ display:block !important; } .nav-panel{ position:static; opacity:1; transform:none; box-shadow:none; }</style>
+</noscript>
+ 
+<script>
+(function(){
+  var VALID_PAGES = ['home','about','dishes','reviews','info'];
+  var pages = document.querySelectorAll('.page');
+  var navLinks = document.querySelectorAll('.nav-link');
+  var burger = document.getElementById('burgerBtn');
+  var panel = document.getElementById('navPanel');
+ 
+  function closePanel(){
+    panel.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+ 
+  function togglePanel(){
+    var isOpen = panel.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+ 
+  burger.addEventListener('click', togglePanel);
+ 
+  document.addEventListener('click', function(e){
+    if(panel.classList.contains('open') && !panel.contains(e.target) && e.target !== burger && !burger.contains(e.target)){
+      closePanel();
+    }
+  });
+ 
+  function showPage(id){
+    pages.forEach(function(p){
+      if(p.id === id){
+        p.classList.remove('animate-in');
+        p.classList.add('active');
+        // force reflow so the entrance animation restarts every visit
+        void p.offsetWidth;
+        p.classList.add('animate-in');
+      } else {
+        p.classList.remove('active', 'animate-in');
+      }
+    });
+    navLinks.forEach(function(l){
+      l.classList.toggle('current', l.getAttribute('data-page') === id);
+    });
+    closePanel();
+  }
+ 
+  navLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      var target = link.getAttribute('data-page');
+      if(!target) return;
+      e.preventDefault();
+      showPage(target);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if(history.replaceState){ history.replaceState(null, '', '#' + target); }
+    });
+  });
+ 
+  var initial = (location.hash || '#home').replace('#', '');
+  showPage(VALID_PAGES.indexOf(initial) !== -1 ? initial : 'home');
+})();
+</script>
+ 
 </body>
 </html>
