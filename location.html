@@ -7,6 +7,8 @@
 <meta name="description" content="Βρείτε την Κατσαρόλα της Μάνας σου στα Σπάτα: Σπύρου Γεωργάκη 25, Σπάτα 190 04. Ωράριο, οδηγίες, τηλέφωνο και συχνές ερωτήσεις.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#b7392c">
+<link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" href="assets/logo.jpg">
 <link rel="canonical" href="https://www.katsarolatismanassou.gr/location.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Η Κατσαρόλα της Μάνας σου">
@@ -110,8 +112,9 @@ header.site::before{
 }
 .nav{ display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; max-width:var(--maxw); margin:0 auto; padding:0 16px; }
 .brand{ display:flex; align-items:center; gap:9px; font-family:'Fraunces', serif; font-size:16px; font-weight:500; text-decoration:none; }
-.brand-mark{ width:30px; height:30px; border-radius:50%; background:var(--brick); display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Fraunces', serif; font-style:italic; font-size:15px; flex-shrink:0; }
-.brand-text{ display:none; }
+.brand-mark{ width:32px; height:32px; border-radius:9px; overflow:hidden; flex-shrink:0; background:var(--ink); box-shadow:0 0 0 1px rgba(35,28,19,0.08); }
+.brand-mark img{ width:100%; height:100%; object-fit:cover; display:block; }
+.brand-text{ display:inline; font-size:12.5px; line-height:1.2; max-width:108px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .nav-actions{ display:flex; align-items:center; gap:8px; }
 .call-btn{
   display:inline-flex; align-items:center; gap:6px; background:var(--olive); color:#fdf8ec;
@@ -137,8 +140,8 @@ nav.links .nav-order{ margin-top:16px; }
 @media (min-width:900px){
   :root{ --nav-h:76px; }
   .brand{ font-size:19px; }
-  .brand-mark{ width:34px; height:34px; font-size:17px; }
-  .brand-text{ display:inline; }
+  .brand-mark{ width:38px; height:38px; }
+  .brand-text{ font-size:inherit; max-width:none; white-space:normal; overflow:visible; text-overflow:clip; }
   .menu-toggle{ display:none; }
   nav.links{
     position:static; inset:auto; background:none; padding:0; gap:26px; flex-direction:row;
@@ -374,6 +377,10 @@ table.hours tr.today td{ color:var(--brick); font-weight:600; }
 footer{ background:var(--olive-dark); color:rgba(243,237,224,0.8); padding:40px 0 90px; }
 .footer-grid{ display:grid; grid-template-columns:1fr; gap:28px; }
 footer h3{ font-family:'Fraunces', serif; font-size:18px; color:#f3ede0; font-weight:500; margin-bottom:10px; }
+footer .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+footer .footer-brand img{ width:44px; height:44px; border-radius:10px; object-fit:cover; flex-shrink:0; box-shadow:0 0 0 1px rgba(243,237,224,0.15); }
+footer .footer-brand h3{ margin-bottom:0; line-height:1.2; }
+
 footer h4{ font-size:12.5px; color:rgba(243,237,224,0.55); margin:0 0 12px; font-weight:600; }
 footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:9px; }
 footer a{ color:rgba(243,237,224,0.85); text-decoration:none; font-size:14px; }
@@ -467,7 +474,7 @@ body{ padding-bottom:70px; }
 <header class="site">
   <div class="nav">
     <a href="index.html" class="brand">
-      <span class="brand-mark">Μ</span>
+      <span class="brand-mark"><img src="assets/logo.jpg" alt="Λογότυπο Η Κατσαρόλα της Μάνας σου" width="38" height="38" loading="eager"></span>
       <span class="brand-text">Η Κατσαρόλα της Μάνας σου</span>
     </a>
     <nav class="links" id="navLinks">
@@ -572,7 +579,10 @@ body{ padding-bottom:70px; }
 <footer>
   <div class="wrap footer-grid">
     <div>
-      <h3>Η Κατσαρόλα της Μάνας σου</h3>
+      <div class="footer-brand">
+        <img src="assets/logo.jpg" alt="Λογότυπο Η Κατσαρόλα της Μάνας σου" width="44" height="44" loading="lazy">
+        <h3>Η Κατσαρόλα<br>της Μάνας σου</h3>
+      </div>
       <p>Σπιτικό, μαγειρευτό φαγητό στα Σπάτα — φρέσκο κάθε μέρα.</p>
     </div>
     <div>
